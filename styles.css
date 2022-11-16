@@ -1,0 +1,21 @@
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator {
+  width: 10em;
+  background-color: #101010;
+}
+.calc-wrapper {
+  flex-direction: column;
+  width: 10em;
+  background-color: aqua;
+}
+
+.display-wrapper {
+  flex-direction: column;
+  width: 10em;
+  background-color: yellow;
+}
