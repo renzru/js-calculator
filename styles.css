@@ -136,6 +136,6 @@ button:hover {
 }
 
 button:active {
-  transform: scale(1.25);
+  transform: scale(0.75);
   filter: brightness(50%);
 }
