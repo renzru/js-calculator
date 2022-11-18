@@ -11,10 +11,8 @@ let inputResult;
 operators.forEach(btn => {
   btn.onclick = () => {
     if (typeof currentOperation !== 'undefined') {
-      inputResult = evaluate(inputArr1, inputArr2, currentOperation);
-      console.log(buffer)
-      clearArrays();
-      inputArr1.push(buffer);
+      preEvaluate();
+      inputArr1.push(inputResult);
     }
     currentOperation = btn.innerHTML;
     console.log(currentOperation);
@@ -25,11 +23,9 @@ numbers.forEach(btn => {
   btn.onclick = () => {
     if (typeof currentOperation !== 'undefined') {
       inputArr2.push(btn.innerHTML);
-      console.log(inputArr2);
       return;
     }
     inputArr1.push(btn.innerHTML);
-    console.log(inputArr1);
   }
 })
 
@@ -38,8 +34,12 @@ clearAll.onclick = () => {
 }
 
 result.onclick = () => {
+  preEvaluate();
+}
+
+function preEvaluate() {
   inputResult = evaluate(inputArr1, inputArr2, currentOperation);
-  console.log(inputResult);
+  clearArrays();
 }
 
 function clearArrays() {
