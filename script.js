@@ -6,11 +6,12 @@ let result = document.querySelector('.RESULT');
 let inputArr1 = [];
 let inputArr2 = [];
 let currentOperation;
+let inputResult;
 
 operators.forEach(btn => {
   btn.onclick = () => {
     if (typeof currentOperation !== 'undefined') {
-      let buffer = evaluate(inputArr1, inputArr2, currentOperation);
+      inputResult = evaluate(inputArr1, inputArr2, currentOperation);
       console.log(buffer)
       clearArrays();
       inputArr1.push(buffer);
@@ -36,12 +37,15 @@ clearAll.onclick = () => {
   clearArrays();
 }
 
+result.onclick = () => {
+  inputResult = evaluate(inputArr1, inputArr2, currentOperation);
+  console.log(inputResult);
+}
+
 function clearArrays() {
   inputArr1 = [];
   inputArr2 = [];
 }
-
-
 
 function add(a, b) {
   return a + b;
