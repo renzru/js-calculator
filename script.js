@@ -29,6 +29,7 @@ function operate(a, b, opt) {
 
 let numbers = document.querySelectorAll('[data-num]');
 let displayBottom = document.querySelector('.display-bottom');
+let clearAll = document.querySelector('.AC');
 let displayArray = [];
 
 numbers.forEach((btn) => {
@@ -38,3 +39,10 @@ numbers.forEach((btn) => {
     displayBottom.innerHTML = displayArray.join('');
   });
 });
+
+clearAll.addEventListener('click', () => clearDisplay());
+
+function clearDisplay() {
+  displayArray = [];
+  displayBottom.innerHTML = displayArray.join('');
+}
