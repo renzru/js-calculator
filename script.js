@@ -10,7 +10,7 @@ let currentOperation;
 operators.forEach(btn => {
   btn.onclick = () => {
     if (typeof currentOperation !== 'undefined') {
-      let buffer = operate(inputArr1, inputArr2, currentOperation);
+      let buffer = evaluate(inputArr1, inputArr2, currentOperation);
       console.log(buffer)
       clearArrays();
       inputArr1.push(buffer);
@@ -32,13 +32,15 @@ numbers.forEach(btn => {
   }
 })
 
+clearAll.onclick = () => {
+  clearArrays();
+}
+
 function clearArrays() {
   inputArr1 = [];
   inputArr2 = [];
 }
-result.onclick = () => {
 
-}
 
 
 function add(a, b) {
@@ -57,7 +59,7 @@ function divide(a, b) {
   return a / b;
 }
 
-function operate(a, b, opt) {
+function evaluate(a, b, opt) {
   a = Number(a.join(''));
   b = Number(b.join(''));
 
