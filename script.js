@@ -26,3 +26,15 @@ function operate(a, b, opt) {
       return divide(a, b);
   }
 }
+
+let numbers = document.querySelectorAll('[data-num]');
+let displayBottom = document.querySelector('.display-bottom');
+let displayArray = [];
+
+numbers.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    displayArray.push(btn.innerHTML);
+
+    displayBottom.innerHTML = displayArray.join('');
+  });
+});
