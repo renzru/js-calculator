@@ -4,6 +4,10 @@
   font-family: "Source Sans Pro";
 }
 
+/* IMG CREDITS 
+https://www.flaticon.com/free-icon/delete_3597073
+*/
+
 html {
   background-color: #303030;
 }
@@ -13,6 +17,8 @@ html {
   justify-content: center;
   align-items: center;
 }
+
+/* WRAPPERS */
 
 .calculator {
   width: 22.5em;
@@ -27,10 +33,12 @@ html {
   border-radius: 2.5em;
 }
 
+/* DISPLAY */
+
 .display-wrapper {
   flex-direction: column;
   align-items: flex-end;
-  width: 18.5em;
+  width: 17.5em;
   height: 5em;
   padding: 0.5em 0.75em;
   margin: 1.25em;
@@ -45,10 +53,10 @@ html {
 }
 
 .display-bottom {
+  padding-bottom: 0.25em;
   font-size: 5em;
   font-weight: 300;
   line-height: 0.75em;
-  padding-bottom: 0.25em;
   color: #303030;
 }
 
@@ -56,6 +64,8 @@ hr {
   width: 100%;
   border: 1px solid #909090;
 }
+
+/* BUTTONS */
 
 .buttons-wrapper {
   display: grid;
@@ -68,23 +78,43 @@ button {
   height: 5em;
   color: #303030;
   font-weight: 400;
-  background-color: transparent;
+  background-color: white;
   border: none;
+  transition: all 0.1s linear;
 }
 
 .operator-button {
   font-weight: 1000;
 }
 
-.ac {
+.AC {
   color: #ff356e;
 }
 
-.result {
+.DEL-img {
+  width: 35%;
+  object-fit: cover;
+  filter: invert(33%) sepia(34%) saturate(4288%) hue-rotate(323deg)
+    brightness(100%) contrast(101%);
+}
+
+.RESULT {
   grid-row: 4/6;
   grid-column: 4/5;
   height: 100%;
   color: white;
   background-color: #ff356e;
   border-radius: 2.5em;
+}
+
+button:hover {
+  background-color: #e4e4e4;
+}
+
+.RESULT:hover {
+  background-color: #d11047;
+}
+
+button:active {
+  filter: brightness(50%);
 }
