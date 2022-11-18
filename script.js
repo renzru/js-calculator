@@ -1,3 +1,22 @@
+let numbers = document.querySelectorAll('[data-num]');
+let displayBottom = document.querySelector('.display-bottom');
+let clearAll = document.querySelector('.AC');
+let displayArray = [];
+
+numbers.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    displayArray.push(btn.innerHTML);
+    displayBottom.innerHTML = displayArray.join('');
+  });
+});
+
+clearAll.addEventListener('click', () => clearDisplay());
+
+function clearDisplay() {
+  displayArray = [];
+  displayBottom.innerHTML = displayArray.join('');
+}
+
 function add(a, b) {
   return a + b;
 }
@@ -25,24 +44,4 @@ function operate(a, b, opt) {
     case opt === "÷":
       return divide(a, b);
   }
-}
-
-let numbers = document.querySelectorAll('[data-num]');
-let displayBottom = document.querySelector('.display-bottom');
-let clearAll = document.querySelector('.AC');
-let displayArray = [];
-
-numbers.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    displayArray.push(btn.innerHTML);
-
-    displayBottom.innerHTML = displayArray.join('');
-  });
-});
-
-clearAll.addEventListener('click', () => clearDisplay());
-
-function clearDisplay() {
-  displayArray = [];
-  displayBottom.innerHTML = displayArray.join('');
 }
