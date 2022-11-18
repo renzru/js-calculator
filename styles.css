@@ -4,12 +4,17 @@
   font-family: "Source Sans Pro";
 }
 
+:root {
+  --maingradient: linear-gradient(#404040 20%, #ff356e, #f58522);
+  --textgradient: linear-gradient(#ff356e, #f58522);
+}
+
 /* IMG CREDITS 
 https://www.flaticon.com/free-icon/delete_3597073
 */
 
-html {
-  background-color: #303030;
+body {
+  background-color: #e4e4e4;
 }
 
 .flex {
@@ -31,6 +36,7 @@ html {
   height: 100%;
   background-color: white;
   border-radius: 2.5em;
+  box-shadow: 0 0.05em 1em rgb(0, 0, 0);
 }
 
 /* DISPLAY */
@@ -40,16 +46,27 @@ html {
   align-items: flex-end;
   width: 17.5em;
   height: 5em;
-  padding: 0.5em 0.75em;
   margin: 1.25em;
+  padding: 0.5em 0.75em;
   background-color: transparent;
   border-radius: 1em;
+}
+
+.display-wrapper > * {
+  background-image: var(--maingradient);
+  background-size: 500% 500%;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.45s linear;
+}
+
+.display-wrapper > *:hover {
+  background-position: 0% 75%;
 }
 
 .display-top {
   font-size: 0.85em;
   font-weight: 300;
-  color: #303030;
 }
 
 .display-bottom {
@@ -57,7 +74,6 @@ html {
   font-size: 5em;
   font-weight: 300;
   line-height: 0.75em;
-  color: #303030;
 }
 
 hr {
@@ -76,26 +92,24 @@ hr {
 button {
   width: 5em;
   height: 5em;
-  color: #303030;
+  color: transparent;
   font-weight: 400;
   background-color: white;
+  background-image: var(--maingradient);
+  background-size: 500% 500%;
+  background-clip: text;
   border: none;
-  transition: all 0.1s linear;
+  transition: all 0.25s linear;
 }
 
 .operator-button {
   font-weight: 1000;
 }
 
-.AC {
-  color: #ff356e;
-}
-
 .DEL-img {
   width: 35%;
   object-fit: cover;
-  filter: invert(33%) sepia(34%) saturate(4288%) hue-rotate(323deg)
-    brightness(100%) contrast(101%);
+  filter: contrast(0.6);
 }
 
 .RESULT {
@@ -103,18 +117,25 @@ button {
   grid-column: 4/5;
   height: 100%;
   color: white;
-  background-color: #ff356e;
+  background-image: var(--maingradient);
+  background-size: 500% 500%;
+  background-clip: unset;
   border-radius: 2.5em;
-}
-
-button:hover {
-  background-color: #e4e4e4;
+  transition: background 0.45s linear;
 }
 
 .RESULT:hover {
-  background-color: #d11047;
+  filter: contrast(125%);
+  color: white;
+  background-position: 0% 80%;
+  transform: unset;
+}
+
+button:hover {
+  background-position: 0% 80%;
 }
 
 button:active {
+  transform: scale(1.25);
   filter: brightness(50%);
 }
