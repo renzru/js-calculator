@@ -7,42 +7,6 @@ let displayArray = [];
 let expressArray = [];
 
 
-numbers.forEach(btn => {
-  btn.addEventListener('click', () => {
-    displayArray.push(btn.innerHTML);
-    displayBottom.innerHTML = displayArray.join('');
-  });
-});
-
-operators.forEach(btn => {
-  btn.addEventListener('click', () => {
-    transferArray(btn);
-  })
-})
-
-result.addEventListener('click', () => {
-  transferArray(displayArray.join(''));
-  let numberArray = expressArray.join('');
-  console.log(numberArray)
-});
-
-function transferArray(btn) {
-  for (let i = 0; i < displayArray.length; i++) {
-    expressArray.push(displayArray[i]);
-    displayArray.splice(i, 1);
-    i--;
-  }
-  expressArray.push(btn.innerHTML);
-  clearDisplay();
-}
-
-clearAll.addEventListener('click', () => clearDisplay());
-
-function clearDisplay() {
-  displayArray = [];
-  displayBottom.innerHTML = displayArray.join('');
-}
-
 function add(a, b) {
   return a + b;
 }
