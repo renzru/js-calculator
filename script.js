@@ -16,6 +16,7 @@ operators.forEach(btn => {
     decimal.disabled = false;
     if (typeof currentOperation !== 'undefined') {
       preEvaluate();
+      clearArrays();
       inputArr1.push(inputResult);
     }
 
@@ -69,7 +70,6 @@ result.onclick = () => {
 function preEvaluate() {
   inputResult = evaluate(inputArr1, inputArr2, currentOperation);
   displayBottom.innerHTML = inputResult;
-  clearArrays();
 }
 
 function clearArrays() {
