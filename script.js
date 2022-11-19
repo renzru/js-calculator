@@ -4,6 +4,7 @@ let displayTop = document.querySelector('.display-top');
 let displayBottom = document.querySelector('.display-bottom');
 let clearAll = document.querySelector('.AC');
 let result = document.querySelector('.RESULT');
+let decimal = document.querySelector('.DECIMAL')
 let inputArr1 = [];
 let inputArr2 = [];
 let currentOperation;
@@ -12,6 +13,7 @@ let displayText;
 
 operators.forEach(btn => {
   btn.onclick = () => {
+    decimal.disabled = false;
     if (typeof currentOperation !== 'undefined') {
       preEvaluate();
       inputArr1.push(inputResult);
@@ -38,9 +40,16 @@ numbers.forEach(btn => {
   }
 })
 
+decimal.addEventListener('click', () => {
+  decimal.disabled = true;
+})
+
 clearAll.onclick = () => {
   clearArrays();
   displayBottom.innerHTML = '';
+  displayTop.innerHTML = '';
+  result.disabled = false;
+  decimal.disabled = false;
 }
 
 function updateTopDisplay() {
