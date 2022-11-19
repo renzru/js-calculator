@@ -15,7 +15,7 @@ operators.forEach(btn => {
       inputArr1.push(inputResult);
     }
     currentOperation = btn.innerHTML;
-    console.log(currentOperation);
+    displayBottom.innerHTML = currentOperation;
   }
 })
 
@@ -23,14 +23,17 @@ numbers.forEach(btn => {
   btn.onclick = () => {
     if (typeof currentOperation !== 'undefined') {
       inputArr2.push(btn.innerHTML);
+      displayBottom.innerHTML = inputArr2.join('');
       return;
     }
     inputArr1.push(btn.innerHTML);
+    displayBottom.innerHTML = inputArr1.join('');
   }
 })
 
 clearAll.onclick = () => {
   clearArrays();
+  displayBottom.innerHTML = '';
 }
 
 result.onclick = () => {
@@ -39,12 +42,32 @@ result.onclick = () => {
 
 function preEvaluate() {
   inputResult = evaluate(inputArr1, inputArr2, currentOperation);
+  displayBottom.innerHTML = inputResult;
   clearArrays();
 }
 
 function clearArrays() {
   inputArr1 = [];
   inputArr2 = [];
+}
+
+function evaluate(a, b, opt) {
+  a = Number(a.join(''));
+  b = Number(b.join(''));
+  if (opt === '÷' && (a === 0 || b === 0)) {
+    return 'Error';
+  }
+
+  switch (true) {
+    case opt === "+":
+      return add(a, b);
+    case opt === "−":
+      return subtract(a, b);
+    case opt === "×":
+      return multiply(a, b);
+    case opt === "÷":
+      return divide(a, b);
+  }
 }
 
 function add(a, b) {
@@ -61,20 +84,4 @@ function multiply(a, b) {
 
 function divide(a, b) {
   return a / b;
-}
-
-function evaluate(a, b, opt) {
-  a = Number(a.join(''));
-  b = Number(b.join(''));
-
-  switch (true) {
-    case opt === "+":
-      return add(a, b);
-    case opt === "−":
-      return subtract(a, b);
-    case opt === "×":
-      return multiply(a, b);
-    case opt === "÷":
-      return divide(a, b);
-  }
 }
