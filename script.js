@@ -60,6 +60,7 @@ result.onclick = () => {
   if (typeof inputArr1 === 'undefined' || typeof currentOperation === 'undefined' || typeof inputArr2 === 'undefined') {
     return;
   }
+
   updateTopDisplay();
   preEvaluate();
   result.disabled = true;

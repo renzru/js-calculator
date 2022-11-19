@@ -6,6 +6,7 @@
 
 :root {
   --maingradient: linear-gradient(#404040 20%, #ff356e, #f58522);
+  --operatorgradient: linear-gradient(#ff356e, #f58522);
 }
 
 /* IMG CREDITS 
@@ -104,6 +105,8 @@ button {
 
 .operator-button {
   font-weight: 1000;
+  background-image: var(--operatorgradient);
+  background-size: unset;
 }
 
 .DEL-img {
@@ -117,18 +120,15 @@ button {
   grid-column: 4/5;
   height: 100%;
   color: white;
-  background-image: var(--maingradient);
-  background-size: 500% 500%;
+  background-image: var(--operatorgradient);
   background-clip: unset;
   border-radius: 2.5em;
-  transition: background 0.45s linear;
+  transition: all 0.45s linear;
 }
 
 .RESULT:hover {
   filter: contrast(125%);
   color: white;
-  background-position: 0% 80%;
-  transform: unset;
 }
 
 button:hover {
