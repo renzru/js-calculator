@@ -14,11 +14,13 @@ let displayText;
 operators.forEach(btn => {
   btn.onclick = () => {
     decimal.disabled = false;
+
     if (typeof currentOperation !== 'undefined') {
       preEvaluate();
       clearArrays();
       inputArr1.push(inputResult);
     }
+
 
     currentOperation = btn.innerHTML;
     updateTopDisplay();
